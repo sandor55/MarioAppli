@@ -16,6 +16,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.support.v4.widget.DrawerLayout;
 import android.widget.ArrayAdapter;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 
@@ -31,6 +32,7 @@ public class MainActivity extends ActionBarActivity
      * Used to store the last screen title. For use in {@link #restoreActionBar()}.
      */
     private CharSequence mTitle;
+    private ImageView logoView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,6 +47,11 @@ public class MainActivity extends ActionBarActivity
         mNavigationDrawerFragment.setUp(
                 R.id.navigation_drawer,
                 (DrawerLayout) findViewById(R.id.drawer_layout));
+
+        //logo toewijzen in de imageView
+        logoView = (ImageView) findViewById(R.id.imageView);
+        logoView.setImageDrawable(getResources().getDrawable(R.drawable.logo));
+
     }
 
     @Override

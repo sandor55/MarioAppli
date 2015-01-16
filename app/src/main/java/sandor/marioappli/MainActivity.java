@@ -56,10 +56,26 @@ public class MainActivity extends ActionBarActivity
 
     @Override
     public void onNavigationDrawerItemSelected(int position) {
+
+        //in begin null
+        Fragment ObjFragment = null;
+
+
+        //zou in de navigatie de juiste views moeten laten zien. doet die nog niet
+        switch ( position)
+        {
+            case 0: ObjFragment = new Hoofdmenu();
+                break;
+            case 1: ObjFragment = new Servicemenu();
+                break;
+            case 2: ObjFragment = new Aanvraagmenu();
+                break;
+        }
+
         // update the main content by replacing fragments
         FragmentManager fragmentManager = getSupportFragmentManager();
         fragmentManager.beginTransaction()
-                .replace(R.id.container, PlaceholderFragment.newInstance(position + 1))
+                .replace(R.id.container, ObjFragment)  //ObjFragment in plaats van position
                 .commit();
     }
 
